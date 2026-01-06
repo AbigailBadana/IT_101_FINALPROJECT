@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boris Pet Accessories | E-Commerce Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to main content</a>
+    <header class="app-header" aria-label="Primary">
+        <div class="brand-mark">
+            <img src="images/logo.jpg" alt="Boris Pet Accessories logo" class="brand-logo">
+            <p class="brand-name">Boris Pet Accessories</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="navList">Menu</button>
+            <ul id="navList">
+                <li>
+                    <a class="nav-icon" href="#home">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M4 11.5 12 4l8 7.5V20h-5v-5H9v5H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg>
+                        <span class="nav-label">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-icon" href="#catalog">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="4" y="4" width="6" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            <rect x="14" y="4" width="6" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            <rect x="4" y="14" width="6" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            <rect x="14" y="14" width="6" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                        <span class="nav-label">Catalog</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-icon" href="#cart">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3.5 5h2l1.8 9h9.7l1.5-6H7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            <circle cx="11" cy="19" r="1.1" fill="currentColor" />
+                            <circle cx="17" cy="19" r="1.1" fill="currentColor" />
+                        </svg>
+                        <span class="nav-label">Cart</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-icon" href="#checkout">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="m5 13 4 4 10-10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="nav-label">Checkout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="status-pill" role="status" aria-live="polite">System status: browsing guest</div>
+    </header>
+
+    <main id="content">
+        <section id="home" class="hero" aria-labelledby="heroTitle">
+            <div class="hero-brand-callout">
+                <p class="welcome-label" aria-live="polite">Welcome</p>
+                <img src="images/logo.jpg" alt="Boris Pet Accessories logo" class="hero-logo" loading="lazy">
+                <h1 id="heroTitle" class="hero-brand-name"><strong>Boris Pet Accessories</strong></h1>
+                <p class="lead">Night-ready pet accessories curated for comfort, visibility, and feline-approved style.</p>
+                <div class="cta-group">
+                    <button class="btn btn-primary" data-jump="#catalog">View products</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="panel" aria-labelledby="catalogTitle">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Catalog</p>
+                    <h2 id="catalogTitle">Product Listing</h2>
+                </div>
+                <div class="filters" role="group" aria-label="Filter products">
+                    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+                    <button class="chip" data-filter="travel">Travel</button>
+                    <button class="chip" data-filter="play">Play</button>
+                    <button class="chip" data-filter="care">Care</button>
+                </div>
+            </div>
+            <div class="product-grid" role="list"></div>
+            <div class="feedback success cart-toast" role="status" aria-live="assertive" hidden data-cart-toast>
+                Added to cart.
+            </div>
+            <template id="product-card-template">
+                <article class="card" role="listitem">
+                    <img class="card-image" alt="">
+                    <div class="card-body">
+                        <div class="card-top">
+                            <p class="badge"></p>
+                            <span class="price" aria-label="Price"></span>
+                        </div>
+                        <h3></h3>
+                        <p class="card-copy"></p>
+                        <div class="support-text"></div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline" data-action="view-details">View details</button>
+                            <button class="btn btn-primary" data-action="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </article>
+            </template>
+        </section>
+
+        <section id="details" class="panel" aria-labelledby="detailsTitle">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Deep dive</p>
+                    <h2 id="detailsTitle">Product Details</h2>
+                </div>
+            </div>
+            <div class="detail-layout">
+                <img id="detailImage" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="Highlight of featured accessory" loading="lazy">
+                <div>
+                    <h3 id="detailName">UmbraFlux Harness Suite</h3>
+                    <p id="detailCopy">Four-way stretch mesh diffuses sheen for dark coats while breathable padding stabilizes weight. Micro-adjust markers illuminate gently during night walks.</p>
+                    <dl class="info-list">
+                        <div>
+                            <dt>Recommended Weight</dt>
+                            <dd>Up to 7 kg cats</dd>
+                        </div>
+                        <div>
+                            <dt>Color Options</dt>
+                            <dd>Gray<br>Black<br>Pink</dd>
+                        </div>
+                        <div>
+                            <dt>Care</dt>
+                            <dd>Machine wash cold, air dry. Hardware resists tarnish.</dd>
+                        </div>
+                    </dl>
+                    <div class="feedback success" role="status">
+                        <strong>In stock:</strong> Free same-day dispatch within Metro Manila before 3 PM.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart" class="panel" aria-labelledby="cartTitle">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Cart overview</p>
+                    <h2 id="cartTitle">Shopping Cart UI</h2>
+                </div>
+            </div>
+            <div class="cart-layout">
+                <div class="cart-panel">
+                    <ul class="cart-items" role="list"></ul>
+                    <p class="empty-text">Your cart is empty. Add items from the catalog to see them here.</p>
+                </div>
+                <aside class="summary" aria-label="Order summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span data-summary-subtotal>₱0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span data-summary-total>₱0.00</span>
+                    </div>
+                    <button class="btn btn-primary" data-jump="#checkout" disabled>Proceed to checkout</button>
+                    <p class="summary-note">
+                        <strong>In stock:</strong> Ships within 24h.<br>
+                        <strong>Heads up:</strong> Orders over ₱5,000 get a complimentary reflective tag.
+                    </p>
+                </aside>
+            </div>
+            <template id="cart-row-template">
+                <li class="cart-row" role="listitem">
+                    <div>
+                        <p class="cart-product"></p>
+                        <p class="muted cart-variant"></p>
+                    </div>
+                    <div class="qty-control" aria-label="Change quantity">
+                        <button type="button" data-dir="-1" aria-label="Decrease quantity">−</button>
+                        <span class="qty" aria-live="polite">1</span>
+                        <button type="button" data-dir="1" aria-label="Increase quantity">+</button>
+                    </div>
+                    <div class="cart-row-actions">
+                        <span class="line-total"></span>
+                        <button class="link-btn" type="button" data-action="remove">Remove</button>
+                    </div>
+                </li>
+            </template>
+        </section>
+
+        <section id="checkout" class="panel" aria-labelledby="checkoutTitle">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Checkout</p>
+                    <h2 id="checkoutTitle">Checkout</h2>
+                </div>
+            </div>
+            <div class="checkout-layout">
+                <form class="checkout-form" novalidate>
+                    <label>
+                        First name
+                        <input type="text" name="firstName" placeholder="Abigail" required>
+                    </label>
+                    <label>
+                        Last name
+                        <input type="text" name="lastName" placeholder="Badana" required>
+                    </label>
+                    <label class="full">
+                        Delivery address
+                        <textarea name="address" rows="2" placeholder="Liboon, Ampayon, Butuan City" required></textarea>
+                    </label>
+                    <label>
+                        City
+                        <input type="text" name="city" placeholder="Butuan" required>
+                    </label>
+                    <label>
+                        Postal code
+                        <input type="text" name="postal" pattern="[0-9]{4}" placeholder="1101" aria-describedby="postalHint" required>
+                        <span id="postalHint" class="hint">Use your 4-digit PH postal code.</span>
+                    </label>
+                    <label>
+                        Contact number
+                        <input type="tel" name="contact" placeholder="09xx xxx xxxx" required>
+                    </label>
+                    <label>
+                        Delivery window
+                        <select name="window" required>
+                            <option value="morning">Morning (8 AM - 12 PM)</option>
+                            <option value="afternoon">Afternoon (1 PM - 5 PM)</option>
+                            <option value="evening">Evening (6 PM - 9 PM)</option>
+                        </select>
+                    </label>
+                    <label class="full">
+                        Courier notes (optional)
+                        <textarea name="notes" rows="2" placeholder="Gate code, gentle knock, pet temperament"></textarea>
+                    </label>
+                    <label class="full consent">
+                        <input type="checkbox" required>
+                        <span>I confirm the details above are accurate and someone can receive the order.</span>
+                    </label>
+                    <button class="btn btn-primary full" type="submit">Finalize order</button>
+                    <p class="form-feedback" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>© <span id="year"></span> Boris Pet Accessories. Built for IT-101 Final Project.</p>
+        <div class="footer-links">
+            <a href="#home">Back to top</a>
+            <a class="footer-support" href="mailto:support@borispetaccessories.com">support@borispetaccessories.com</a>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
